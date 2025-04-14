@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    tools:ignore="HardcodedText">
+
+    <Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:title="@string/app_name"
+        android:titleTextColor="@color/md_theme_onBackground" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/from_asset"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Load from asset" />
+
+    <Button
+        android:id="@+id/from_storage"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Load from storage" />
+
+    <Button
+        android:id="@+id/from_url"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Load from url" />
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/use_compose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:text="Use Compose PdfViewer" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="By Bhuvaneshwaran" />
+
+    <TextView
+        android:id="@+id/link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:padding="3dp"
+        android:text="https://github.com/bhuvaneshw"
+        android:textColor="@color/md_theme_primary" />
+
+    <TextView
+        android:id="@+id/libraries_used"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:padding="3dp"
+        android:text="View Libraries used"
+        android:textColor="@color/md_theme_primary" />
+
+</LinearLayout>
