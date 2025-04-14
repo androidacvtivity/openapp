@@ -45,9 +45,19 @@ class MainActivity : AppCompatActivity() {
         view.fromAsset.setOnClickListener {
             startActivity(
                 Intent(this, getViewerActivityClass()).apply {
-                    putExtra("fileName", "sample.pdf")
+                    putExtra("fileName", "Codul de etică")
                     putExtra("fileSize", 271804L)
-                    putExtra("filePath", "asset://sample.pdf")
+                    putExtra("filePath", "asset://Codul_de_etică.pdf")
+                }
+            )
+        }
+
+        view.fromUrl.setOnClickListener {
+            startActivity(
+                Intent(this, getViewerActivityClass()).apply {
+                    putExtra("fileName", "Regulament financiar 2024")
+                    putExtra("fileSize", 271804L)
+                    putExtra("filePath", "asset://Regulament_Directia_management financiar_2024.pdf")
                 }
             )
         }
