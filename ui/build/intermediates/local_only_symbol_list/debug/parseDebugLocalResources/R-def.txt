@@ -29,7 +29,6 @@ id back
 id creation_date
 id creator
 id drag_handle
-id edit
 id edit_title
 id editor_bar
 id file_name
