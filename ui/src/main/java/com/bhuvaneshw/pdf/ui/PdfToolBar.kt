@@ -67,7 +67,7 @@ open class PdfToolBar @JvmOverloads constructor(
     val findInfo: TextView = root.findViewById(R.id.find_info)
     val findPrevious: ImageView = root.findViewById(R.id.find_previous)
     val findNext: ImageView = root.findViewById(R.id.find_next)
-    val edit: ImageView = root.findViewById(R.id.edit)
+   // val edit: ImageView = root.findViewById(R.id.edit)
     val editorBar: LinearLayout = root.findViewById(R.id.editor_bar)
     val highlightBar: LinearLayout = root.findViewById(R.id.highlight_bar)
     val freeTextBar: LinearLayout = root.findViewById(R.id.free_text_bar)
@@ -101,7 +101,7 @@ open class PdfToolBar @JvmOverloads constructor(
             )
             val showEditor = typedArray.getBoolean(R.styleable.PdfToolBar_showEditor, false)
             this.contentColor = contentColor
-            edit.run { visibility = if (showEditor) VISIBLE else GONE }
+//            edit.run { visibility = if (showEditor) VISIBLE else GONE }
             popupBackgroundColor =
                 typedArray.getColor(R.styleable.PdfToolBar_popupBackgroundColor, Color.WHITE)
             typedArray.recycle()
@@ -125,14 +125,14 @@ open class PdfToolBar @JvmOverloads constructor(
             override fun onPageLoadStart() {
                 find.isEnabled = false
                 more.isEnabled = false
-                edit.isEnabled = false
+             //   edit.isEnabled = false
                 setFindBarVisible(false)
             }
 
             override fun onPageLoadSuccess(pagesCount: Int) {
                 find.isEnabled = true
                 more.isEnabled = true
-                edit.isEnabled = true
+              //  edit.isEnabled = true
             }
 
             override fun onLoadProperties(properties: PdfDocumentProperties) {
@@ -158,7 +158,7 @@ open class PdfToolBar @JvmOverloads constructor(
 
         find.isEnabled = false
         more.isEnabled = false
-        edit.isEnabled = false
+     //  edit.isEnabled = false
 
         showAllHighlights.isChecked = pdfViewer.editor.showAllHighlights
         showAllHighlights.setOnCheckedChangeListener { _, isChecked ->
@@ -273,7 +273,7 @@ open class PdfToolBar @JvmOverloads constructor(
         findEditText.setTextColor(contentColor)
         findNext.setTintModes(contentColor)
         findPrevious.setTintModes(contentColor)
-        edit.setTintModes(contentColor)
+        //edit.setTintModes(contentColor)
         undo.setTintModes(contentColor)
         redo.setTintModes(contentColor)
         editTitle.setTextColor(contentColor)
@@ -317,7 +317,7 @@ open class PdfToolBar @JvmOverloads constructor(
         find.setOnClickListener { setFindBarVisible(true) }
         findNext.setOnClickListener { pdfViewer.findController.findNext() }
         findPrevious.setOnClickListener { pdfViewer.findController.findPrevious() }
-        edit.setOnClickListener { setEditorBarVisible(true) }
+        //edit.setOnClickListener { setEditorBarVisible(true) }
         highlight.setOnClickListener { setHighlightBarVisible(true) }
         freeText.setOnClickListener { setFreeTextBarVisible(true) }
         ink.setOnClickListener { setInkBarVisible(true) }
