@@ -35,12 +35,12 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        view.useCompose.run {
-            isChecked = pref.getBoolean("use_compose", false)
-            setOnCheckedChangeListener { _, isChecked ->
-                pref.edit { putBoolean("use_compose", isChecked) }
-            }
-        }
+//        view.useCompose.run {
+//            isChecked = pref.getBoolean("use_compose", false)
+//            setOnCheckedChangeListener { _, isChecked ->
+//                pref.edit { putBoolean("use_compose", isChecked) }
+//            }
+//        }
 
         view.fromAsset.setOnClickListener {
             startActivity(
@@ -72,23 +72,23 @@ class MainActivity : AppCompatActivity() {
             )
         }
 
-        view.fromUrl.setOnClickListener {
-            promptUrl { url ->
-                startActivity(
-                    Intent(this, getViewerActivityClass()).apply {
-                        putExtra("fileUrl", url)
-                    }
-                )
-            }
+//        view.fromUrl.setOnClickListener {
+//            promptUrl { url ->
+//                startActivity(
+//                    Intent(this, getViewerActivityClass()).apply {
+//                        putExtra("fileUrl", url)
+//                    }
+//                )
+//            }
         }
 
-        view.link.setOnClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW, view.link.text.toString().toUri()))
-        }
-        view.librariesUsed.setOnClickListener {
-            startActivity(Intent(this, UsedLibrariesActivity::class.java))
-        }
-    }
+//        view.link.setOnClickListener {
+//            startActivity(Intent(Intent.ACTION_VIEW, view.link.text.toString().toUri()))
+//        }
+//        view.librariesUsed.setOnClickListener {
+//            startActivity(Intent(this, UsedLibrariesActivity::class.java))
+//        }
+//    }
 
     private fun getViewerActivityClass(): Class<*> {
         val useCompose = pref.getBoolean("use_compose", false)

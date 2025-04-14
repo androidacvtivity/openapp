@@ -149,13 +149,10 @@ id field
 id from_asset
 id from_storage
 id from_url
-id libraries_used
-id link
 id loader
 id pdf_scroll_bar
 id pdf_tool_bar
 id pdf_viewer
-id use_compose
 id zoom_seekbar
 layout activity_main
 layout activity_pdf_viewer

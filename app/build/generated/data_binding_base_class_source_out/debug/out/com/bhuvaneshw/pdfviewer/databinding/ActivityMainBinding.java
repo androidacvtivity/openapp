@@ -6,13 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.bhuvaneshw.pdfviewer.R;
-import com.google.android.material.materialswitch.MaterialSwitch;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -33,26 +31,13 @@ public final class ActivityMainBinding implements ViewBinding {
   @NonNull
   public final Button fromUrl;
 
-  @NonNull
-  public final TextView librariesUsed;
-
-  @NonNull
-  public final TextView link;
-
-  @NonNull
-  public final MaterialSwitch useCompose;
-
   private ActivityMainBinding(@NonNull LinearLayout rootView, @NonNull LinearLayout container,
-      @NonNull Button fromAsset, @NonNull Button fromStorage, @NonNull Button fromUrl,
-      @NonNull TextView librariesUsed, @NonNull TextView link, @NonNull MaterialSwitch useCompose) {
+      @NonNull Button fromAsset, @NonNull Button fromStorage, @NonNull Button fromUrl) {
     this.rootView = rootView;
     this.container = container;
     this.fromAsset = fromAsset;
     this.fromStorage = fromStorage;
     this.fromUrl = fromUrl;
-    this.librariesUsed = librariesUsed;
-    this.link = link;
-    this.useCompose = useCompose;
   }
 
   @Override
@@ -102,26 +87,8 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.libraries_used;
-      TextView librariesUsed = ViewBindings.findChildViewById(rootView, id);
-      if (librariesUsed == null) {
-        break missingId;
-      }
-
-      id = R.id.link;
-      TextView link = ViewBindings.findChildViewById(rootView, id);
-      if (link == null) {
-        break missingId;
-      }
-
-      id = R.id.use_compose;
-      MaterialSwitch useCompose = ViewBindings.findChildViewById(rootView, id);
-      if (useCompose == null) {
-        break missingId;
-      }
-
       return new ActivityMainBinding((LinearLayout) rootView, container, fromAsset, fromStorage,
-          fromUrl, librariesUsed, link, useCompose);
+          fromUrl);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

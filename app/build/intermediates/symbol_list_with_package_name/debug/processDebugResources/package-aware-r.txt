@@ -3592,11 +3592,9 @@ id layout
 id left
 id leftToRight
 id legacy
-id libraries_used
 id line1
 id line3
 id linear
-id link
 id listMode
 id list_item
 id loader
@@ -3857,7 +3855,6 @@ id uniform
 id unlabeled
 id up
 id useLogo
-id use_compose
 id view_offset_helper
 id view_tree_disjoint_parent
 id view_tree_lifecycle_owner
