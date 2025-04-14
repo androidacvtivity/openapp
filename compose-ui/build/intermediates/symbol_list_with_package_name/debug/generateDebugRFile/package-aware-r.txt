@@ -1,0 +1,10 @@
+com.bhuvaneshw.pdf.compose.ui
+drawable baseline_drag_indicator_24
+drawable baseline_drag_indicator_horizontal_24
+drawable baseline_draw_24
+drawable baseline_highlight_24
+drawable baseline_opacity_24
+drawable baseline_redo_24
+drawable baseline_text_fields_24
+drawable baseline_thickness_24
+drawable baseline_undo_24
