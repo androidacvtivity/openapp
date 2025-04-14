@@ -283,27 +283,31 @@ private fun Activity.ExtendedTooBarMenus(
     var showZoomLimitDialog by remember { mutableStateOf(false) }
     val dropDownModifier = Modifier.padding(start = 6.dp, end = 18.dp)
 
-    if (state.pdfViewer?.currentSource?.startsWith("file:///android_asset") == false)
-        DropdownMenuItem(
-            text = { Text(text = "Open in other app", modifier = dropDownModifier) },
-            onClick = {
-                val uri = Uri.parse(state.pdfViewer?.currentSource ?: return@DropdownMenuItem)
-                startActivity(
-                    Intent(Intent.ACTION_VIEW, uri).apply {
-                        putExtra(Intent.EXTRA_STREAM, uri)
-                        addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-                    }
-                )
-            }
-        )
+//    if (state.pdfViewer?.currentSource?.startsWith("file:///android_asset") == false)
+//        DropdownMenuItem(
+//            text = { Text(text = "Open in other app", modifier = dropDownModifier) },
+//            onClick = {
+//                val uri = Uri.parse(state.pdfViewer?.currentSource ?: return@DropdownMenuItem)
+//                startActivity(
+//                    Intent(Intent.ACTION_VIEW, uri).apply {
+//                        putExtra(Intent.EXTRA_STREAM, uri)
+//                        addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+//                    }
+//                )
+//            }
+//        )
 
-    DropdownMenuItem(
-        text = { Text(text = "Print", modifier = dropDownModifier) },
-        onClick = {
-            onDismiss()
-            state.pdfViewer?.printFile()
-        }
-    )
+
+
+//    DropdownMenuItem(
+//        text = { Text(text = "Print", modifier = dropDownModifier) },
+//        onClick = {
+//            onDismiss()
+//            state.pdfViewer?.printFile()
+//        }
+//    )
+
+
     DropdownMenuItem(
         text = { Text(text = "Zoom Limit", modifier = dropDownModifier) },
         onClick = { showZoomLimitDialog = true }

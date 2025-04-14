@@ -26,7 +26,7 @@ class ExtendedToolBar @JvmOverloads constructor(
         return PopupMenu(context, anchorView).apply {
             // Item ids 0-9 are already taken
             if (pdfViewer.currentSource?.startsWith("file:///android_asset") == false)
-                menu.add(Menu.NONE, 10, Menu.NONE, "Open in other app")
+              //  menu.add(Menu.NONE, 10, Menu.NONE, "Open in other app")
             menu.add(Menu.NONE, 11, Menu.NONE, "Zoom Limit")
             menu.add(
                 Menu.NONE,
