@@ -1,3 +1,0 @@
-int attr containerBackgroundColor 0x0
-int[] styleable PdfViewer { 0x0 }
-int styleable PdfViewer_containerBackgroundColor 0
