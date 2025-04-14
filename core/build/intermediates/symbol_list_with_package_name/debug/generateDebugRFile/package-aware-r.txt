@@ -1,0 +1,3 @@
+com.bhuvaneshw.pdf
+attr containerBackgroundColor
+styleable PdfViewer containerBackgroundColor

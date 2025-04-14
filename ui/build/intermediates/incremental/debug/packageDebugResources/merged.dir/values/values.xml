@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr format="color" name="contentColor"/>
+    <declare-styleable name="PdfScrollBar">
+        <attr name="contentColor"/>
+        <attr format="color" name="handleColor"/>
+        <attr format="boolean" name="useVerticalScrollBarForHorizontalMode"/>
+    </declare-styleable>
+    <declare-styleable name="PdfToolBar">
+        <attr name="contentColor"/>
+        <attr format="boolean" name="showEditor"/>
+        <attr format="color" name="popupBackgroundColor"/>
+    </declare-styleable>
+</resources>

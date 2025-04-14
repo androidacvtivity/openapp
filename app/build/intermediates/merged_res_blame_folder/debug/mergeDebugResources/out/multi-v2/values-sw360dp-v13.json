@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.bhuvaneshw.pdfviewer.app-mergeDebugResources-65:/values-sw360dp-v13/values-sw360dp-v13.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\VitalieBancu\\.gradle\\caches\\8.11.1\\transforms\\a464aae53e8dad2eb5366f6ba6b624de\\transformed\\preference-1.0.0\\res\\values-sw360dp-v13\\values-sw360dp-v13.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,127",
+                        "endColumns": "71,64",
+                        "endOffsets": "122,187"
+                    }
+                }
+            ]
+        }
+    ]
+}
