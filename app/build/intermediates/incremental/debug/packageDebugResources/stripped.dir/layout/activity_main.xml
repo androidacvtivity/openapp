@@ -24,7 +24,7 @@
         android:id="@+id/from_asset"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="Load from asset" />
+        android:text="Codul de etică" />
 
     <Button
         android:id="@+id/from_storage"
@@ -32,18 +32,18 @@
         android:layout_height="wrap_content"
         android:text="Load from storage" />
 
-    <Button
-        android:id="@+id/from_url"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:text="Load from url" />
-
-<!--    <com.google.android.material.materialswitch.MaterialSwitch-->
+    <!--    <com.google.android.material.materialswitch.MaterialSwitch-->
 <!--        android:id="@+id/use_compose"-->
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->
 <!--        android:padding="12dp"-->
 <!--        android:text="Use Compose PdfViewer" />-->
+
+    <Button
+        android:id="@+id/from_url"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Regulament financiar 2024" />
 
     <View
         android:layout_width="wrap_content"
