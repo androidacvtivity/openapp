@@ -3535,6 +3535,7 @@ id free_font_color
 id free_font_size
 id free_text
 id free_text_bar
+id fromAssetDocxHtml
 id from_asset
 id from_asset_doc
 id from_asset_pdfjs

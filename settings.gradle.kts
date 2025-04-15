@@ -17,6 +17,11 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         maven("https://jitpack.io")
+        maven(url = "https://oss.sonatype.org/content/groups/public/") // necesar pentru xdo
+
+        jcenter()
+        // Sau repo-ul direct de la OpenSAGRES (fallback)
+        maven { url = uri("https://oss.sonatype.org/content/repositories/releases/") }
     }
 }
 
