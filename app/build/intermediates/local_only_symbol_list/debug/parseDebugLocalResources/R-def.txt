@@ -147,6 +147,7 @@ drawable ic_launcher_foreground
 id container
 id field
 id from_asset
+id from_asset_doc
 id from_asset_pdfjs
 id from_storage
 id from_url
@@ -168,3 +169,4 @@ style ThemeOverlay.AppTheme.HighContrast
 style ThemeOverlay.AppTheme.MediumContrast
 xml backup_rules
 xml data_extraction_rules
+xml file_paths
