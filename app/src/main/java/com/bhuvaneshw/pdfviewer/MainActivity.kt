@@ -1,23 +1,26 @@
 package com.bhuvaneshw.pdfviewer
 
 import android.R
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.webkit.URLUtil
 import android.widget.Button
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.FileProvider
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.bhuvaneshw.pdfviewer.PdfJsViewerActivity
 import com.bhuvaneshw.pdfviewer.databinding.ActivityMainBinding
 import com.bhuvaneshw.pdfviewer.databinding.UrlDialogBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-
-
+import java.io.File
+import java.io.FileOutputStream
 
 
 class MainActivity : AppCompatActivity() {
@@ -50,8 +53,10 @@ class MainActivity : AppCompatActivity() {
             )
         }
 
-
-
+//Daca se declara asa  R.id.fromAssetDoc - nu vede
+        view.fromAssetDoc.setOnClickListener {
+            openDocFromAssets("Regulament.doc") // sau .docx
+        }
 
 //aici se deschide - este unul si acelas fisier
         view.fromAsset.setOnClickListener {
@@ -104,13 +109,30 @@ class MainActivity : AppCompatActivity() {
 //            }
         }
 
-//        view.link.setOnClickListener {
-//            startActivity(Intent(Intent.ACTION_VIEW, view.link.text.toString().toUri()))
-//        }
-//        view.librariesUsed.setOnClickListener {
-//            startActivity(Intent(this, UsedLibrariesActivity::class.java))
-//        }
-//    }
+
+    private fun openDocFromAssets(fileName: String) {
+        val inputStream = assets.open(fileName)
+        val file = File(cacheDir, fileName)
+        FileOutputStream(file).use { output ->
+            inputStream.copyTo(output)
+        }
+
+        val uri = FileProvider.getUriForFile(
+            this,
+            "${packageName}.fileprovider",
+            file
+        )
+
+        val intent = Intent(Intent.ACTION_VIEW)
+        intent.setDataAndType(uri, "application/msword")
+        intent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
+        try {
+            startActivity(intent)
+        } catch (e: ActivityNotFoundException) {
+            Toast.makeText(this, "Nicio aplicație disponibilă pentru fișiere DOC", Toast.LENGTH_SHORT).show()
+        }
+    }
+
 
     private fun getViewerActivityClass(): Class<*> {
         val useCompose = pref.getBoolean("use_compose", false)

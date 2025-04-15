@@ -3536,6 +3536,7 @@ id free_font_size
 id free_text
 id free_text_bar
 id from_asset
+id from_asset_doc
 id from_asset_pdfjs
 id from_storage
 id from_url
@@ -5692,3 +5693,4 @@ styleable ViewPager2 android_orientation
 styleable ViewStubCompat android_id android_layout android_inflatedId
 xml backup_rules
 xml data_extraction_rules
+xml file_paths
