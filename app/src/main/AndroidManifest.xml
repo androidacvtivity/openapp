@@ -25,6 +25,8 @@
             </intent-filter>
         </activity>
 
+
+
         <activity
             android:name=".PdfViewerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
@@ -54,6 +56,23 @@
                 <data android:mimeType="application/pdf" />
             </intent-filter>
         </activity>
+
+
+        <activity
+            android:name=".PdfJsViewerActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
+            android:exported="true"
+            android:label="Compose Pdf Viewer">
+            <intent-filter tools:ignore="AppLinkUrlError">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:mimeType="application/pdf" />
+            </intent-filter>
+        </activity>
+
 
         <activity
             android:name=".UsedLibrariesActivity"

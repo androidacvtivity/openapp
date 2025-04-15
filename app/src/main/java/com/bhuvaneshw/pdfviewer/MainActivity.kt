@@ -1,19 +1,24 @@
 package com.bhuvaneshw.pdfviewer
 
+import android.R
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.view.View
 import android.webkit.URLUtil
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.edit
-import androidx.core.net.toUri
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.bhuvaneshw.pdfviewer.PdfJsViewerActivity
 import com.bhuvaneshw.pdfviewer.databinding.ActivityMainBinding
 import com.bhuvaneshw.pdfviewer.databinding.UrlDialogBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+
+
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,24 +29,31 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
+
+
+
+
         pref = getSharedPreferences("pref", MODE_PRIVATE)
 
         view = ActivityMainBinding.inflate(layoutInflater)
         setContentView(view.root)
 
-        ViewCompat.setOnApplyWindowInsetsListener(view.container) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+
+
+
+    //Asa se deschide interfata dar nu este continut
+        view.fromAssetPdfjs.setOnClickListener {
+            startActivity(
+                Intent(this, PdfJsViewerActivity::class.java).apply {
+                    putExtra("pdf_file", "Codul_de_etică.pdf")
+                }
+            )
         }
 
-//        view.useCompose.run {
-//            isChecked = pref.getBoolean("use_compose", false)
-//            setOnCheckedChangeListener { _, isChecked ->
-//                pref.edit { putBoolean("use_compose", isChecked) }
-//            }
-//        }
 
+
+
+//aici se deschide - este unul si acelas fisier
         view.fromAsset.setOnClickListener {
             startActivity(
                 Intent(this, getViewerActivityClass()).apply {

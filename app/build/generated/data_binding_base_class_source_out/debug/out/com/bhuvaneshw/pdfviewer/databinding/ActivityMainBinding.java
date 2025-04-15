@@ -26,16 +26,21 @@ public final class ActivityMainBinding implements ViewBinding {
   public final Button fromAsset;
 
   @NonNull
+  public final Button fromAssetPdfjs;
+
+  @NonNull
   public final Button fromStorage;
 
   @NonNull
   public final Button fromUrl;
 
   private ActivityMainBinding(@NonNull LinearLayout rootView, @NonNull LinearLayout container,
-      @NonNull Button fromAsset, @NonNull Button fromStorage, @NonNull Button fromUrl) {
+      @NonNull Button fromAsset, @NonNull Button fromAssetPdfjs, @NonNull Button fromStorage,
+      @NonNull Button fromUrl) {
     this.rootView = rootView;
     this.container = container;
     this.fromAsset = fromAsset;
+    this.fromAssetPdfjs = fromAssetPdfjs;
     this.fromStorage = fromStorage;
     this.fromUrl = fromUrl;
   }
@@ -75,6 +80,12 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.from_asset_pdfjs;
+      Button fromAssetPdfjs = ViewBindings.findChildViewById(rootView, id);
+      if (fromAssetPdfjs == null) {
+        break missingId;
+      }
+
       id = R.id.from_storage;
       Button fromStorage = ViewBindings.findChildViewById(rootView, id);
       if (fromStorage == null) {
@@ -87,8 +98,8 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityMainBinding((LinearLayout) rootView, container, fromAsset, fromStorage,
-          fromUrl);
+      return new ActivityMainBinding((LinearLayout) rootView, container, fromAsset, fromAssetPdfjs,
+          fromStorage, fromUrl);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
