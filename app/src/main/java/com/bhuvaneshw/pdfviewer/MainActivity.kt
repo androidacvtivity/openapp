@@ -8,6 +8,11 @@ import android.os.Bundle
 import android.view.View
 import android.webkit.URLUtil
 import android.widget.Button
+
+import android.webkit.WebView
+import android.webkit.WebViewClient
+import org.apache.poi.xwpf.usermodel.XWPFDocument
+import java.io.InputStream
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
@@ -33,7 +38,8 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
 
 
-
+        var binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
 
         pref = getSharedPreferences("pref", MODE_PRIVATE)
@@ -44,7 +50,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-    //Asa se deschide interfata dar nu este continut
+        //Asa se deschide interfata dar nu este continut
         view.fromAssetPdfjs.setOnClickListener {
             startActivity(
                 Intent(this, PdfJsViewerActivity::class.java).apply {
@@ -108,6 +114,33 @@ class MainActivity : AppCompatActivity() {
 //                )
 //            }
         }
+
+
+    private fun openDocxAsHtml(fileName: String) {
+        try {
+            val assetManager = assets
+            val inputStream: InputStream = assetManager.open(fileName)
+            val doc = XWPFDocument(inputStream)
+            val paragraphs = doc.paragraphs
+
+            val htmlBuilder = StringBuilder()
+            htmlBuilder.append("<html><body>")
+            for (para in paragraphs) {
+                htmlBuilder.append("<p>").append(para.text).append("</p>")
+            }
+            htmlBuilder.append("</body></html>")
+
+            val webView = WebView(this)
+            webView.settings.javaScriptEnabled = true
+            webView.webViewClient = WebViewClient()
+            setContentView(webView)
+            webView.loadDataWithBaseURL(null, htmlBuilder.toString(), "text/html", "utf-8", null)
+
+        } catch (e: Exception) {
+            e.printStackTrace()
+            Toast.makeText(this, "Eroare la deschiderea .docx ca HTML", Toast.LENGTH_LONG).show()
+        }
+    }
 
 
     private fun openDocFromAssets(fileName: String) {

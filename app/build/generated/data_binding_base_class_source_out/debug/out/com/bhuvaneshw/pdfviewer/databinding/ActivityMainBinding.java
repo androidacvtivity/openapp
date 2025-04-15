@@ -29,6 +29,9 @@ public final class ActivityMainBinding implements ViewBinding {
   public final Button fromAssetDoc;
 
   @NonNull
+  public final Button fromAssetDocxHtml;
+
+  @NonNull
   public final Button fromAssetPdfjs;
 
   @NonNull
@@ -38,12 +41,13 @@ public final class ActivityMainBinding implements ViewBinding {
   public final Button fromUrl;
 
   private ActivityMainBinding(@NonNull LinearLayout rootView, @NonNull LinearLayout container,
-      @NonNull Button fromAsset, @NonNull Button fromAssetDoc, @NonNull Button fromAssetPdfjs,
-      @NonNull Button fromStorage, @NonNull Button fromUrl) {
+      @NonNull Button fromAsset, @NonNull Button fromAssetDoc, @NonNull Button fromAssetDocxHtml,
+      @NonNull Button fromAssetPdfjs, @NonNull Button fromStorage, @NonNull Button fromUrl) {
     this.rootView = rootView;
     this.container = container;
     this.fromAsset = fromAsset;
     this.fromAssetDoc = fromAssetDoc;
+    this.fromAssetDocxHtml = fromAssetDocxHtml;
     this.fromAssetPdfjs = fromAssetPdfjs;
     this.fromStorage = fromStorage;
     this.fromUrl = fromUrl;
@@ -90,6 +94,12 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.fromAssetDocxHtml;
+      Button fromAssetDocxHtml = ViewBindings.findChildViewById(rootView, id);
+      if (fromAssetDocxHtml == null) {
+        break missingId;
+      }
+
       id = R.id.from_asset_pdfjs;
       Button fromAssetPdfjs = ViewBindings.findChildViewById(rootView, id);
       if (fromAssetPdfjs == null) {
@@ -109,7 +119,7 @@ public final class ActivityMainBinding implements ViewBinding {
       }
 
       return new ActivityMainBinding((LinearLayout) rootView, container, fromAsset, fromAssetDoc,
-          fromAssetPdfjs, fromStorage, fromUrl);
+          fromAssetDocxHtml, fromAssetPdfjs, fromStorage, fromUrl);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -53,6 +53,12 @@
         android:layout_height="wrap_content"
         android:text="Deschide DOC din assets" />
 
+    <Button
+        android:id="@+id/fromAssetDocxHtml"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Deschide DOCX ca HTML" />
+
 
     <View
         android:layout_width="wrap_content"
